@@ -13977,6 +13977,19 @@ video {
   font-weight: 700;
 }
 
+.navbar__item form {
+  line-height: 1.5;
+  display: inline-block;
+  margin: 0;
+}
+
+.navbar__link {
+  cursor: pointer;
+  border-width: 0;
+  background-color: transparent;
+  overflow: visible;
+}
+
 @media (max-width: 639px) {
   .navbar__collapse {
     transition-duration: 150ms;
@@ -14005,10 +14018,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .navbar__item {
-    line-height: 1;
-  }
-
   .navbar__link {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -14019,6 +14028,99 @@ video {
     padding-left: 0.5rem;
     padding-right: 0;
   }
+}
+
+.textfield {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e2e8f0;
+  padding: 0.25rem;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type=checkbox] {
+  position: absolute;
+  left: -9999em;
+  overflow: hidden;
+}
+
+.form-group input[type=checkbox] + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.form-group input[type=checkbox] + label::before {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbd5e0;
+  margin-right: 0.5rem;
+  content: "";
+}
+
+.form-group input[type=checkbox] + label:hover::before, .form-group input[type=checkbox] + label:focus::before {
+  border-color: #cbd5e0;
+}
+
+.form-group input[type=checkbox]:checked + label::before {
+  background-color: #63b3ed;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #48bb78;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #38a169;
+}
+
+.table {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e2e8f0;
+}
+
+.table th, .table td {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.table th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f7fafc;
+  text-align: left;
+}
+
+.table td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #edf2f7;
 }
 
 @media (min-width: 640px) {

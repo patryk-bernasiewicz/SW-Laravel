@@ -23,11 +23,11 @@
             <a href="#" class="navbar__link">{{ Auth::user()->name }}</a>
           </li>
 
-          <li class="navbar__item mt-3">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          <li class="navbar__item mt-3 sm:m-0">
+            {{ Form::open(['method' => 'POST', 'url' => route('logout')], ['id' => 'logout-form']) }}
               @csrf
-              <input type="submit" class="navbar__link">{{ __('Logout') }}</a>
-            </form>
+              <input type="submit" class="navbar__link" value="{{ __('Logout') }}">
+            {{ Form::close() }}
           </li>
         @endguest
       </ul>
