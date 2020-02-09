@@ -19283,6 +19283,25 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.addEventListener('load', function () {
+  // Hamburger menu
+  var navbar = document.querySelector('.navbar');
+  var hamburger = navbar.querySelector('.navbar__toggle');
+  var collapse = navbar.querySelector('.navbar__collapse');
+  var visibleClass = 'navbar__collapse--visible';
+  hamburger.addEventListener('click', function () {
+    console.log('hamburger click');
+
+    if (collapse.classList.contains(visibleClass)) {
+      collapse.classList.remove(visibleClass);
+      navbar.setAttribute('aria-expanded', false);
+    } else {
+      collapse.classList.add(visibleClass);
+      navbar.setAttribute('aria-expanded', true);
+    }
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

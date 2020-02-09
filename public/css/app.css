@@ -13965,6 +13965,62 @@ video {
   transition-duration: 1000ms;
 }
 
+/**
+  * .navbar
+  * .navbar__toggle
+  *
+  * .navbar__collapse
+  * .navbar__collapse--visible
+  */
+
+.navbar__brand {
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .navbar__collapse {
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition-property: max-height;
+  }
+
+  .navbar__collapse--visible {
+    max-height: calc(100vh - 100px);
+    overflow: scroll;
+  }
+
+  .navbar__link {
+    display: block;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .navbar__item {
+    line-height: 1;
+  }
+
+  .navbar__link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .navbar__item:last-child .navbar__link {
+    padding-left: 0.5rem;
+    padding-right: 0;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

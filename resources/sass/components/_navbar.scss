@@ -1,0 +1,48 @@
+/**
+  * .navbar
+  * .navbar__toggle
+  *
+  * .navbar__collapse
+  * .navbar__collapse--visible
+  */
+
+.navbar__brand {
+  @apply font-bold;
+}
+
+@media (max-width: 639px) {
+  .navbar__collapse {
+    @apply duration-150 ease-out;
+
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition-property: max-height;
+  }
+
+  .navbar__collapse--visible {
+    max-height: calc(100vh - 100px);
+    overflow: scroll;
+  }
+
+  .navbar__link {
+    @apply block py-1 px-2 mb-1;
+  }
+}
+
+@media (min-width: 640px) {
+  .navbar__item {
+    line-height: 1;
+  }
+
+  .navbar__link {
+    @apply px-2;
+    @apply text-xs;
+
+    .navbar__item:last-child & {
+      @apply pl-2 pr-0;
+    }
+  }
+}
