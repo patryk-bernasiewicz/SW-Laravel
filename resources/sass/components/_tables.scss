@@ -1,0 +1,16 @@
+.table {
+  @apply border border-solid border-gray-300;
+
+  th, td {
+    @apply px-2 py-1;
+  }
+
+  th {
+    @apply border border-solid border-gray-100;
+    @apply text-left;
+  }
+
+  td {
+    @apply border border-solid border-gray-200;
+  }
+}

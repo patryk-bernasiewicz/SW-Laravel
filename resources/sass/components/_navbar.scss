@@ -10,6 +10,20 @@
   @apply font-bold;
 }
 
+.navbar__item {
+  
+  form {
+    line-height: 1.5;
+    display: inline-block;
+    @apply m-0;
+  }
+}
+
+.navbar__link {
+  @apply cursor-pointer;
+  @apply border-0 bg-transparent overflow-visible;
+}
+
 @media (max-width: 639px) {
   .navbar__collapse {
     @apply duration-150 ease-out;
@@ -33,10 +47,6 @@
 }
 
 @media (min-width: 640px) {
-  .navbar__item {
-    line-height: 1;
-  }
-
   .navbar__link {
     @apply px-2;
     @apply text-xs;

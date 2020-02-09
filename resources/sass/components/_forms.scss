@@ -1,0 +1,40 @@
+.textfield {
+  @apply border border-solid border-gray-300;
+  @apply p-1;
+}
+
+.form-group {
+  @apply flex items-center;
+  @apply mb-2;
+}
+
+
+.form-group input[type="checkbox"] {
+  position: absolute;
+  left: -9999em;
+  overflow: hidden;
+}
+
+.form-group input[type="checkbox"] + label {
+  @apply flex items-center;
+  @apply cursor-pointer;
+  user-select: none;
+
+  &::before {
+    @apply inline-block w-4 h-4;
+    @apply border border-solid border-gray-400;
+    @apply mr-2;
+
+    content: '';
+  }
+
+  &:hover::before,
+  &:focus::before {
+    @apply border-gray-400;
+  }
+}
+.form-group input[type="checkbox"]:checked + label {
+  &::before {
+    @apply bg-blue-400;
+  }
+}

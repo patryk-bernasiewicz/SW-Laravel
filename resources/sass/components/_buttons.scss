@@ -1,0 +1,12 @@
+.btn {
+  @apply cursor-pointer;
+  @apply inline-flex justify-center items-center text-center;
+  @apply px-4 py-2;
+  @apply bg-green-500;
+  @apply font-bold text-white;
+
+  &:hover,
+  &:focus {
+    @apply bg-green-600;
+  }
+}
