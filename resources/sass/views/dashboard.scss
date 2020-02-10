@@ -1,0 +1,13 @@
+@import '../inc';
+
+.dashboard__menu {
+  a {
+    @apply block py-1 px-2;
+    @apply text-gray-900;
+
+    &:hover,
+    &:focus {
+      @apply text-gray-700;
+    }
+  }
+}

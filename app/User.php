@@ -39,4 +39,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * Check if User belongs to provided role
+     * 
+     * @param $roleName string - user's role name to check
+     */
+    public function is($roleName) {
+        foreach ($this->roles as $role) {
+            if (strtolower($role->name) === strtolower($roleName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -20,7 +20,10 @@
         @else
 
           <li class="navbar__item">
-            <a href="#" class="navbar__link">{{ Auth::user()->name }}</a>
+            <a href="#" class="navbar__link">Logged in as {{ Auth::user()->name }}</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/dashboard" class="navbar__link">Dashboard</a>
           </li>
 
           <li class="navbar__item mt-3 sm:m-0">

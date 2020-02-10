@@ -17,6 +17,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
+  Route::get('dashboard', 'DashboardController@index');
+  Route::get('dashboard/swapi', 'SwapiController@index');
+  Route::get('dashboard/swapi/refresh', 'SwapiController@refresh');
+
   Route::resource('roles', 'RoleController');
   Route::resource('users', 'UserController');
 });

@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @auth
+                        You are logged in!
+                    @else
+                        You are <b>NOT</b> logged in!
+                    @endauth
                 </div>
             </div>
         </div>
