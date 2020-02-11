@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\SWCharacter;
 
+use App\Helpers\SWApiHelper;
+
 class SwapiController extends Controller
 {
+    private $_sleep = 50;
+
     function __construct() {
         $this->middleware('permission:swapi-refresh', ['only' => ['index','refresh']]);
     }
@@ -23,8 +27,16 @@ class SwapiController extends Controller
             return response('You must make an AJAX call.', 400)->header('Content-Type', 'text/plain');
         }
 
-        // Import logic here
+        // Clear table before inserting updated data
+        SWCharacter::truncate();
 
-        return ['message' => 'Import successful!'];
+        try {
+            $characters = SWApiHelper::updateCharacters();
+            $count = count($characters);
+        } catch (Error $e) {
+            return ['message' => 'Can\'t load data at the time. Try again later.'];
+        }
+
+        return ['message' => $count . ' character records re-added successfully!'];
     }
 }

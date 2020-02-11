@@ -1,5 +1,5 @@
 window.addEventListener('load', function () {
-  let loader, loading;
+  let loader, infoBox, loading;
 
   const showLoader = (show = false, parent) => {
     loading = !!show;
@@ -21,13 +21,30 @@ window.addEventListener('load', function () {
         loader.classList.add('hidden');
       }
     }
-  }
+  };
+
+  const showInfoBox = (text, show = true, parent) => {
+    if (!infoBox) {
+      infoBox = document.createElement('div');
+      infoBox.classList.add('mt-2', 'mb-1', 'text-green-500');
+      parent.insertAdjacentElement('beforebegin', infoBox);
+    }
+    if (show) {
+      infoBox.classList.remove('hidden');
+    } else {
+      infoBox.classList.add('hidden');
+    }
+    infoBox.innerText = text;
+  };
 
   const refreshBtn = document.querySelector('#swapi_refresh');
   refreshBtn.addEventListener('click', e => {
     if (loading) return;
 
     showLoader(true, e.target);
+    e.target.setAttribute('disabled', 'disabled');
+
+    showInfoBox('Working! Please do not refresh the browser and do not close the window.', true, e.target.parentElement);
 
     fetch('/dashboard/swapi/refresh', {
       cache: 'no-cache',
@@ -38,14 +55,14 @@ window.addEventListener('load', function () {
     })
       .then(res => res.json())
       .then(res => {
-        setTimeout(() => {
-          console.log('Success!', res);
-          showLoader(false, e.target);
-        }, 3000);
+        showLoader(false, e.target);
+        showInfoBox(res.message)
+        e.target.removeAttribute('disabled', 'disabled');
       })
       .catch(err => {
-        console.error('Error!', err);
         showLoader(false, e.target);
+        showInfoBox(err.message);
+        e.target.removeAttribute('disabled', 'disabled');
       });
   });
 });

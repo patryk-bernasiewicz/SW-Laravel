@@ -10,3 +10,13 @@
     @apply bg-green-600;
   }
 }
+
+.btn:disabled {
+  @apply bg-gray-500;
+  @apply cursor-wait;
+
+  &:hover,
+  &:focus {
+    @apply bg-gray-500;
+  }
+}

@@ -14106,6 +14106,15 @@ h1.heading {
   background-color: #38a169;
 }
 
+.btn:disabled {
+  background-color: #a0aec0;
+  cursor: wait;
+}
+
+.btn:disabled:hover, .btn:disabled:focus {
+  background-color: #a0aec0;
+}
+
 .table {
   border-width: 1px;
   border-style: solid;

@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 window.addEventListener('load', function () {
-  var loader, loading;
+  var loader, infoBox, loading;
 
   var showLoader = function showLoader() {
     var show = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
@@ -122,10 +122,31 @@ window.addEventListener('load', function () {
     }
   };
 
+  var showInfoBox = function showInfoBox(text) {
+    var show = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+    var parent = arguments.length > 2 ? arguments[2] : undefined;
+
+    if (!infoBox) {
+      infoBox = document.createElement('div');
+      infoBox.classList.add('mt-2', 'mb-1', 'text-green-500');
+      parent.insertAdjacentElement('beforebegin', infoBox);
+    }
+
+    if (show) {
+      infoBox.classList.remove('hidden');
+    } else {
+      infoBox.classList.add('hidden');
+    }
+
+    infoBox.innerText = text;
+  };
+
   var refreshBtn = document.querySelector('#swapi_refresh');
   refreshBtn.addEventListener('click', function (e) {
     if (loading) return;
     showLoader(true, e.target);
+    e.target.setAttribute('disabled', 'disabled');
+    showInfoBox('Working! Please do not refresh the browser and do not close the window.', true, e.target.parentElement);
     fetch('/dashboard/swapi/refresh', {
       cache: 'no-cache',
       headers: {
@@ -135,13 +156,13 @@ window.addEventListener('load', function () {
     }).then(function (res) {
       return res.json();
     }).then(function (res) {
-      setTimeout(function () {
-        console.log('Success!', res);
-        showLoader(false, e.target);
-      }, 3000);
-    })["catch"](function (err) {
-      console.error('Error!', err);
       showLoader(false, e.target);
+      showInfoBox(res.message);
+      e.target.removeAttribute('disabled', 'disabled');
+    })["catch"](function (err) {
+      showLoader(false, e.target);
+      showInfoBox(err.message);
+      e.target.removeAttribute('disabled', 'disabled');
     });
   });
 });

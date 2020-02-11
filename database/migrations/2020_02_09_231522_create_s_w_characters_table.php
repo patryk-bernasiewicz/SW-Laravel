@@ -22,7 +22,7 @@ class CreateSWCharactersTable extends Migration
             $table->string('skin_color');
             $table->string('eye_color');
             $table->string('birth_year');
-            $table->enum('gender', ['male', 'female', 'n/a']);
+            $table->enum('gender', ['male', 'female', 'hermaphrodite', 'none', 'n/a']);
             $table->string('homeworld');
             $table->json('films');
             $table->string('species');
