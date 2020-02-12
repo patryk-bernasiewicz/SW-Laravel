@@ -3,19 +3,19 @@
   @apply p-1;
 }
 
-.form-group {
+.form__group {
   @apply flex items-center;
   @apply mb-2;
 }
 
 
-.form-group input[type="checkbox"] {
+.form__group input[type="checkbox"] {
   position: absolute;
   left: -9999em;
   overflow: hidden;
 }
 
-.form-group input[type="checkbox"] + label {
+.form__group input[type="checkbox"] + label {
   @apply flex items-center;
   @apply cursor-pointer;
   user-select: none;
@@ -33,8 +33,12 @@
     @apply border-gray-400;
   }
 }
-.form-group input[type="checkbox"]:checked + label {
+.form__group input[type="checkbox"]:checked + label {
   &::before {
     @apply bg-blue-400;
   }
+}
+
+.form__error {
+  @apply mt-1 mb-2 p-2 border-red-300 text-red-500;
 }

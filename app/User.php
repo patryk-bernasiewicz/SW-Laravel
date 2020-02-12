@@ -1,17 +1,19 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use Spatie\Permission\Traits\HasRoles;
+use Givebutter\LaravelKeyable\Keyable;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
+    use Keyable;
 
     /**
      * The attributes that are mass assignable.

@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
+use App\Models\SWCharacter;
+use Givebutter\LaravelKeyable\Facades\Keyable;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -16,6 +19,8 @@ class AuthServiceProvider extends ServiceProvider
         // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
+    protected $keyablePolicies = [];
+
     /**
      * Register any authentication / authorization services.
      *
@@ -24,7 +29,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        Keyable::registerKeyablePolicies($this->keyablePolicies);
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b75635536079bd906869e6bc6a784d40",
+    "content-hash": "2ff70172adaa4c7f0b9aa51b4f04381d",
     "packages": [
         {
             "name": "caseyamcl/guzzle_retry_middleware",
@@ -392,6 +392,59 @@
                 "trusted proxy"
             ],
             "time": "2019-12-20T13:11:11+00:00"
+        },
+        {
+            "name": "givebutter/laravel-keyable",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/givebutter/laravel-keyable.git",
+                "reference": "fe4e3e38da448532fcee6189f34e18bdddf53525"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/givebutter/laravel-keyable/zipball/fe4e3e38da448532fcee6189f34e18bdddf53525",
+                "reference": "fe4e3e38da448532fcee6189f34e18bdddf53525",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Givebutter\\LaravelKeyable\\KeyableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Givebutter\\LaravelKeyable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liran Cohen",
+                    "email": "liran@givebutter.com"
+                }
+            ],
+            "description": "Add API keys to your Laravel models",
+            "homepage": "https://github.com/givebutter/laravel-keyable",
+            "keywords": [
+                "api",
+                "api authentication",
+                "api keys",
+                "json",
+                "laravel",
+                "php",
+                "rest"
+            ],
+            "time": "2019-09-19T14:49:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

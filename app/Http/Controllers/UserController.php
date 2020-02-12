@@ -108,5 +108,5 @@ class UserController extends Controller
         $user->destroy();
 
         redirect('/users')->with('message', 'User deleted.');
-    } 
+    }
 }

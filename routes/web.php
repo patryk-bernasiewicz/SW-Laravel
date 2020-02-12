@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
   Route::get('dashboard', 'DashboardController@index');
+  Route::get('dashboard/generate_api_key', 'DashboardController@generate_api_key');
   Route::get('dashboard/swapi', 'SwapiController@index');
   Route::get('dashboard/swapi/refresh', 'SwapiController@refresh');
 
